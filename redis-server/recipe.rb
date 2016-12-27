@@ -3,7 +3,7 @@ class RedisServer < FPM::Cookery::Recipe
 
   name     'redis-server'
   version  '3.0.2'
-  revision '0.werrett'
+  revision 'sbx'
   homepage 'http://redis.io'
 
   source   "http://download.redis.io/releases/redis-#{version}.tar.gz"

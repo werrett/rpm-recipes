@@ -3,7 +3,7 @@ class Rbenv < FPM::Cookery::Recipe
 
   name     'rbenv'
   version  '0.4.0'
-  revision '0.werrett'
+  revision 'sbx'
   homepage 'https://github.com/sstephenson/rbenv'
 
   source   'https://github.com/sstephenson/rbenv',

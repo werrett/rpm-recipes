@@ -3,7 +3,7 @@ class VimEunuch < FPM::Cookery::Recipe
 
   name     'vim-eunuch'
   version  '20150217'
-  revision '0.werrett'
+  revision 'sbx'
   homepage 'https://github.com/tpope/vim-eunuch.git'
 
   source   'https://github.com/tpope/vim-eunuch.git',

@@ -4,7 +4,7 @@ class Nginx < FPM::Cookery::Recipe
 
   name     'nginx'
   version  '1.7.9'
-  revision '0.werrett'
+  revision 'sbx'
   sha1     '44ef4770db281cea26a1b2e66c0e34193e1d1f1f'
 
   homepage 'http://nginx.org/'

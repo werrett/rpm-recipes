@@ -4,7 +4,7 @@ class NodeJS < FPM::Cookery::Recipe
 
   name     'nodejs'
   version  '0.12.5'
-  revision '0.werrett'
+  revision 'sbx'
   homepage 'http://nodejs.org/'
 
   source   "http://nodejs.org/dist/v#{version}/node-v#{version}.tar.gz"

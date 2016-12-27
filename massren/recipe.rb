@@ -3,7 +3,7 @@ class Massren < FPM::Cookery::Recipe
 
   name     'massren'
   version  '20150325'
-  revision '0.werrett'
+  revision 'sbx'
   homepage 'https://github.com/laurent22/massren'
 
   source 'https://github.com/laurent22/massren',

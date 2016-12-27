@@ -3,7 +3,7 @@ class VimNerdCommenter < FPM::Cookery::Recipe
 
   name     'vim-nerdcommenter'
   version  '20150217'
-  revision '0.werrett'
+  revision 'sbx'
   homepage 'https://github.com/scrooloose/nerdcommenter.git'
 
   source   'https://github.com/scrooloose/nerdcommenter.git',

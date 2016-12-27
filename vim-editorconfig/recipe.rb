@@ -3,7 +3,7 @@ class VimEditorConfig < FPM::Cookery::Recipe
 
   name     'vim-editorconfig'
   version  '20150217'
-  revision '0.werrett'
+  revision 'sbx'
   homepage 'http://editorconfig.org/'
 
   source   'https://github.com/editorconfig/editorconfig-vim.git',

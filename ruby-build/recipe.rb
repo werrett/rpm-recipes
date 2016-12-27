@@ -4,7 +4,7 @@ class RubyBuild < FPM::Cookery::Recipe
 
   name     'ruby-build'
   version  '20150519'
-  revision '0.werrett'
+  revision 'sbx'
   homepage 'https://github.com/sstephenson/ruby-build'
 
   # Pull from git:

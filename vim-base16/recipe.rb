@@ -3,7 +3,7 @@ class VimBase16 < FPM::Cookery::Recipe
 
   name     'vim-base16'
   version  '20150217'
-  revision '0.werrett'
+  revision 'sbx'
   homepage 'https://github.com/chriskempson/base16'
 
   source   'https://github.com/chriskempson/base16-vim.git',

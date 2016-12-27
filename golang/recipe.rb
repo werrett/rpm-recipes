@@ -4,7 +4,7 @@ class Golang < FPM::Cookery::Recipe
 
   name     'golang'
   version  '1.4.1'
-  revision '0.werrett'
+  revision 'sbx'
   homepage 'http://golang.org/'
 
   source "https://storage.googleapis.com/golang/go#{version}.linux-amd64.tar.gz"

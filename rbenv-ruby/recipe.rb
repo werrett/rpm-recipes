@@ -5,7 +5,7 @@ class RbenvRuby < FPM::Cookery::Recipe
 
   name     'rbenv-ruby'
   version  '1.9.3-p551'
-  revision '0.werrett'
+  revision 'sbx'
   homepage 'http://www.ruby-lang.org/'
 
   # Use Rbenv to pull down the correct Ruby source

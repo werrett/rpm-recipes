@@ -3,7 +3,7 @@ class VimSurround < FPM::Cookery::Recipe
 
   name     'vim-surround'
   version  '20150217'
-  revision '0.werrett'
+  revision 'sbx'
   homepage 'https://github.com/tpope/vim-surround'
 
   source   'https://github.com/tpope/vim-surround',

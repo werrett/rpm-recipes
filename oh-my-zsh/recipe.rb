@@ -3,7 +3,7 @@ class OhMyZsh < FPM::Cookery::Recipe
 
   name     'oh-my-zsh'
   version  '20150218'
-  revision '0.werrett'
+  revision 'sbx'
   homepage 'http://ohmyz.sh/'
 
   # Pull from git:
