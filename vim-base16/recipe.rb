@@ -6,7 +6,7 @@ class VimBase16 < FPM::Cookery::Recipe
   revision '0.werrett'
   homepage 'https://github.com/chriskempson/base16'
 
-  source   'https://github.com/chriskempson/base16-vim.git',
+  source   'https://github.com/chriskempson/base16-vim',
     :with => :git, :ref => '851a73721737409bef2d076c7547fefa1fa93684'
 
   section 'editor'

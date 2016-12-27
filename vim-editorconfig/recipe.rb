@@ -6,7 +6,7 @@ class VimEditorConfig < FPM::Cookery::Recipe
   revision '0.werrett'
   homepage 'http://editorconfig.org/'
 
-  source   'https://github.com/editorconfig/editorconfig-vim.git',
+  source   'https://github.com/editorconfig/editorconfig-vim',
     :with => :git, :ref => '77875eff51d87eb9c9986ff75f2361f4ac629cd3'
 
   section 'editor'

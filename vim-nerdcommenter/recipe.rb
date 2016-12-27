@@ -4,9 +4,9 @@ class VimNerdCommenter < FPM::Cookery::Recipe
   name     'vim-nerdcommenter'
   version  '20150217'
   revision '0.werrett'
-  homepage 'https://github.com/scrooloose/nerdcommenter.git'
+  homepage 'https://github.com/scrooloose/nerdcommenter'
 
-  source   'https://github.com/scrooloose/nerdcommenter.git',
+  source   'https://github.com/scrooloose/nerdcommenter',
     :with => :git, :ref => '6549cfde45339bd4f711504196ff3e8b766ef5e6'
 
   section 'editor'

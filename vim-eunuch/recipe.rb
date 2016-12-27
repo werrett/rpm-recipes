@@ -4,9 +4,9 @@ class VimEunuch < FPM::Cookery::Recipe
   name     'vim-eunuch'
   version  '20150217'
   revision '0.werrett'
-  homepage 'https://github.com/tpope/vim-eunuch.git'
+  homepage 'https://github.com/tpope/vim-eunuch'
 
-  source   'https://github.com/tpope/vim-eunuch.git',
+  source   'https://github.com/tpope/vim-eunuch',
     :with => :git, :ref => 'e36b9a701dd3d8054e6b8a77b14710276a1d93c8'
 
   section 'editor'
