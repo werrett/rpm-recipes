@@ -1,13 +1,13 @@
 class Massren < FPM::Cookery::Recipe
-  description 'Easily rename multiple files using your text edit'
+  description 'Easily rename multiple files using your text editor'
 
   name     'massren'
-  version  '20150325'
-  revision '0.werrett'
+  version  '20161227'
+  revision 'sbx'
   homepage 'https://github.com/laurent22/massren'
 
   source 'https://github.com/laurent22/massren',
-    :with => :git, :ref => 'd77c4da85c'
+    :with => :git, :ref => '4de39fa7117e4a8a40805ec17d8d584aa5253452'
 
   section 'utilities'
 

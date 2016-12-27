@@ -3,8 +3,8 @@ class RubyBuild < FPM::Cookery::Recipe
   description 'A rbenv plugin to compile and install different versions of Ruby'
 
   name     'ruby-build'
-  version  '20150519'
-  revision '0.werrett'
+  version  '20161225'
+  revision 'sbx'
   homepage 'https://github.com/sstephenson/ruby-build'
 
   # Pull from git:

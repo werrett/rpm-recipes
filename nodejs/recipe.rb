@@ -1,14 +1,14 @@
 # Originally from <https://github.com/bernd/fpm-recipes/>
 class NodeJS < FPM::Cookery::Recipe
-  description 'Evented I/O for V8 JavaScript'
+  description 'An event-driven, non-blocking I/O server-side language.'
 
   name     'nodejs'
-  version  '0.12.5'
-  revision '0.werrett'
+  version  '6.9.2'
+  revision 'sbx'
   homepage 'http://nodejs.org/'
 
   source   "http://nodejs.org/dist/v#{version}/node-v#{version}.tar.gz"
-  sha1     'baecde8c2d297aa001a2a8ba2f2d086d970a13eb'
+  sha256    '997121460f3b4757907c2d7ff68ebdbf87af92b85bf2d07db5a7cb7aa5dae7d9'
 
   section 'interpreters'
 

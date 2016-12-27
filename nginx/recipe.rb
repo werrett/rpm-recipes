@@ -3,9 +3,9 @@ class Nginx < FPM::Cookery::Recipe
   description 'A high performance web server and reverse proxy server'
 
   name     'nginx'
-  version  '1.7.9'
-  revision '0.werrett'
-  sha1     '44ef4770db281cea26a1b2e66c0e34193e1d1f1f'
+  version  '1.11.7'
+  revision 'sbx'
+  sha256   '0d55beb52b2126a3e6c7ae40f092986afb89d77b8062ca0974512b8c76d9300e'
 
   homepage 'http://nginx.org/'
   source   "http://nginx.org/download/nginx-#{version}.tar.gz"
@@ -27,8 +27,8 @@ class Nginx < FPM::Cookery::Recipe
   def build
     # HttpHeadersMore Module patches - Needed to "remove" headers while proxying
     # http://wiki.nginx.org/HttpHeadersMoreModule
-    system "wget https://github.com/openresty/headers-more-nginx-module/archive/v0.25.tar.gz"
-    system "tar zxfv v0.25.tar.gz -C .."
+    system 'wget https://github.com/openresty/headers-more-nginx-module/archive/v0.25.tar.gz'
+    system 'tar zxfv v0.25.tar.gz -C ..'
 
     configure \
       '--with-http_ssl_module',

@@ -2,12 +2,12 @@ class VimSurround < FPM::Cookery::Recipe
   description 'VIM plugin that makes quoting and parenthesizing simple'
 
   name     'vim-surround'
-  version  '20150217'
-  revision '0.werrett'
+  version  '20161227'
+  revision 'sbx'
   homepage 'https://github.com/tpope/vim-surround'
 
   source   'https://github.com/tpope/vim-surround',
-    :with => :git, :ref => 'fd75eb2cb2ffe85a457445cb152d5a6c7acda140'
+    :with => :git, :ref => 'e49d6c2459e0f5569ff2d533b4df995dd7f98313'
 
   section 'editor'
 
@@ -15,6 +15,8 @@ class VimSurround < FPM::Cookery::Recipe
   conflicts name
   replaces  name
 
+  arch 'noarch'
+  
   # Define the build and install dependancies for RedHat-a-likes (RPM names)
   platforms [:redhat, :fedora, :centos] do
     depends       'vim-enhanced'

@@ -2,8 +2,8 @@ class Rbenv < FPM::Cookery::Recipe
   description 'Groom your apps Ruby environment'
 
   name     'rbenv'
-  version  '0.4.0'
-  revision '0.werrett'
+  version  '1.1.0'
+  revision 'sbx'
   homepage 'https://github.com/sstephenson/rbenv'
 
   source   'https://github.com/sstephenson/rbenv',
@@ -31,7 +31,7 @@ class Rbenv < FPM::Cookery::Recipe
     system "mkdir #{installdir}/shims"
 
     share.install installdir
-    
+
     # Set RBENV system-wide via a bash profile
     etc('profile.d').install workdir('rbenv.profile'), 'rbenv.sh'
   end

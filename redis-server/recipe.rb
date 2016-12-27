@@ -2,12 +2,12 @@ class RedisServer < FPM::Cookery::Recipe
   description 'An advanced key-value store'
 
   name     'redis-server'
-  version  '3.0.2'
-  revision '0.werrett'
+  version  '3.2.6'
+  revision 'sbx'
   homepage 'http://redis.io'
 
   source   "http://download.redis.io/releases/redis-#{version}.tar.gz"
-  sha1     'a38755fe9a669896f7c5d8cd3ebbf76d59712002'
+  sha1     '0c7bc5c751bdbc6fabed178db9cdbdd948915d1b'
 
   section      'database'
 

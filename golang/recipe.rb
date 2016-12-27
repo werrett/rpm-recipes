@@ -3,12 +3,12 @@ class Golang < FPM::Cookery::Recipe
   description 'A language to build simple, reliable, and efficient software'
 
   name     'golang'
-  version  '1.4.1'
-  revision '0.werrett'
+  version  '1.7.4'
+  revision 'sbx'
   homepage 'http://golang.org/'
 
   source "https://storage.googleapis.com/golang/go#{version}.linux-amd64.tar.gz"
-  sha1   '3e871200e13c0b059b14866d428910de0a4c51ed'
+  sha256 '47fda42e46b4c3ec93fa5d4d4cc6a748aa3f9411a2a2b7e08e3a6d80d753ec8b'
 
   section 'development'
 
