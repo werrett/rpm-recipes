@@ -1,4 +1,4 @@
-# Werrett FPM Recipes
+# FPM Recipes
 
 Various recipes to build custom RPMs. It uses
 [FPM](https://github.com/jordansissel/fpm) and [FPM
@@ -10,7 +10,7 @@ A CentOS build environment is provided using
 
 ## Installation
 
-Use the included `Vagrantfile` will build a Centos 7 environment with all the
+Use the included `Vagrantfile` to build a CentOS 7 environment with all the
 required dependencies. Simply run:
 
 ```bash
@@ -18,7 +18,7 @@ vagrant up
 vagrant ssh
 ```
 
-However, the  list of prerequisites for building RPMs FPM Cookery are:
+However, the list of prerequisites for building RPMs with FPM Cookery are:
 
   * Ruby 2.0 or greater
   * git zlib zlib-devel openssl-devel readline-devel RPMs
@@ -26,16 +26,16 @@ However, the  list of prerequisites for building RPMs FPM Cookery are:
 
 ## Building RPMs
 
-The included RPM build scripts are munt in the Vagrant VM under `/vagrant`
+The included RPM build scripts are mounted in the Vagrant VM under `/vagrant`
 
-To build the `Redis` RPM:
-
+To build single RPMs (eg. `Redis`):
 ```bash
 cd /vagrant/redis
 fpm-cook clean
 fpm-cook
 ```
-If you run into any problems, the partial built files are in the `tmp-build`
+
+If you run into any problems, the partial build files are in the `tmp-build`
 directory. Troubleshoot in there and then go through the cook steps above again.
 
 Once an RPM is built you can examine, install and remove it via:
