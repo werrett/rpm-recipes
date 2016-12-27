@@ -1,0 +1,27 @@
+*~
+*#
+.#*
+\#*#
+.*.sw[a-z]
+*.un~
+
+# Bundler
+Gemfile.lock
+bin/*
+.bundle/*
+
+# OSX
+.DS_Store
+
+# FPM temporary and cache files
+cache/
+pkg/
+tmp-*/
+.buildpath
+.project
+
+# Vagrant
+.vagrant/*
+
+# Rbenv
+.ruby-version

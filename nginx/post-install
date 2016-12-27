@@ -1,0 +1,39 @@
+#!/bin/sh
+
+# Post-install script for nginx
+# Runs after everything else to create the nginx user
+# Eventually this should be handled by Puppet (or whatever)
+
+set -e
+
+user="nginx"
+group="nginx"
+home="/var/lib/nginx"
+
+# See <http://www.rpm.org/max-rpm/s1-rpm-inside-scripts.html>
+case "${1}" in
+  1) # install
+
+    # Create the user & group
+    if ! getent group "$group" > /dev/null 2>&1 ; then
+      groupadd --system "$group"
+    fi
+
+    if ! getent passwd "$user" > /dev/null 2>&1 ; then
+      adduser --system --home-dir "$home" --no-create-home \
+        -g "$user" --shell /sbin/nologin \
+        "$user"
+    fi
+
+    if [ -d "$home" ] ; then
+      # Fix the dir permissions. This is post- after all.
+      chown -R "$user:$group" "$home"
+      chmod -R 755 "$home"
+    fi
+  ;;
+
+  *) # install on top of another package. do nothing
+  ;;
+esac
+
+exit

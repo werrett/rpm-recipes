@@ -1,0 +1,25 @@
+#!/bin/sh
+
+# Post-uninstall script for nginx
+# Runs after everything else to remove the nginx user
+# Eventually this should be handled by Puppet (or whatever)
+
+set -e
+
+user="nginx"
+group="nginx"
+home="/var/lib/nginx"
+
+# See <http://www.rpm.org/max-rpm/s1-rpm-inside-scripts.html>
+case "$1" in
+  0) # uninstall
+  
+    userdel "$user" > /dev/null 2>&1 || true
+    # /dev/null supresses error when userdel deletes the group as well
+    groupdel "$group" > /dev/null 2>&1 || true
+
+    ;;
+
+  *) # uninstall but there are other packages. do nothing. 
+  ;;
+esac

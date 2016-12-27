@@ -1,0 +1,133 @@
+#!/bin/sh
+
+# redis - this script starts and stops the redis-server daemon
+
+### BEGIN INIT INFO
+# Provides:             redis-server
+# Required-Start:       $syslog $remote_fs
+# Required-Stop:        $syslog $remote_fs
+# Should-Start:         $_fs
+# Should-Stop:          $_fs
+# Default-Start:        2 3 4 5
+# Default-Stop:         0 1 6
+# Short-Description:    Redis
+# Description:          Redis - A persistent key-value database
+### END INIT INFO
+
+### BEGIN CHKCONFIG INFO
+# chkconfig: 2345 90 10
+# description: Redis
+### END CHKCONFIG INFO
+
+# Based on <https://gist.github.com/nkts/9248629>
+
+# Source function library.
+. /etc/rc.d/init.d/functions
+
+# Source networking configuration.
+. /etc/sysconfig/network
+
+# Check that networking is up.
+[ "$NETWORKING" = "no" ] && exit 0
+
+
+EXEC=/usr/bin/redis-server
+PIDFILE=/var/run/redis.pid
+CLIEXEC=/usr/bin/redis-cli
+PORT=6379
+
+CONFFILE="/etc/redis/redis.conf"
+USER=redis
+
+prog=$(basename $EXEC)
+
+start() {
+    [ -x $EXEC ] || exit 5
+    [ -f $CONFFILE ] || exit 6
+
+    touch $PIDFILE && chown $USER:$USER $PIDFILE
+
+    echo -n $"Starting $prog: "
+    daemon --user ${USER} "$EXEC $CONFFILE"
+    retval=$?
+
+    echo
+    return $retval
+}
+
+stop() {
+    echo -n $"Stopping $prog: "
+
+    PID=$(cat $PIDFILE)
+    $CLIEXEC -p $PORT shutdown
+    retval=$?
+
+    while [ -x /proc/${PID} ]; do
+      echo -n "."
+      sleep 1
+    done
+
+    if [ $retval -eq 0 ]; then
+      success
+      [ -f $PIDFILE ] && rm $PIDFILE
+    else
+      failure
+    fi
+
+    echo
+    return $retval
+}
+
+restart() {
+    stop
+    start
+}
+
+reload() {
+    echo -n $"Reloading Redis: "
+    killproc -p $PIDFILE $prog -HUP
+    RETVAL=$?
+    echo
+}
+
+force_reload() {
+    restart
+}
+
+rh_status() {
+    status -p $PIDFILE $prog
+}
+
+rh_status_q() {
+    rh_status >/dev/null 2>&1
+}
+
+case "$1" in
+    start)
+        rh_status_q && exit 0
+        $1
+        ;;
+    stop)
+        rh_status_q || exit 0
+        $1
+        ;;
+    restart|configtest)
+        $1
+        ;;
+    reload)
+        rh_status_q || exit 7
+        $1
+        ;;
+    force-reload)
+        force_reload
+        ;;
+    status)
+        rh_status
+        ;;
+    condrestart|try-restart)
+        rh_status_q || exit 0
+	    ;;
+    *)
+        echo $"Usage: $0 {start|stop|status|restart|condrestart|try-restart|reload|force-reload}"
+        exit 2
+esac

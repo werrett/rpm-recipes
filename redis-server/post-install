@@ -1,0 +1,50 @@
+#!/bin/sh
+# postinst script for redis
+
+set -e
+
+
+case "${1}" in
+    1) # install for first time http://www.rpm.org/max-rpm/s1-rpm-inside-scripts.html
+    # configure)
+    [ -f /etc/default/redis ] && . /etc/default/redis
+    [ -z "${REDIS_USER}" ] && REDIS_USER="redis"
+    [ -z "${REDIS_GROUP}" ] && REDIS_GROUP="redis"
+    if ! getent group "${REDIS_GROUP}" > /dev/null 2>&1 ; then
+        groupadd --system "${REDIS_GROUP}" 
+    fi
+    if ! id ${REDIS_USER} > /dev/null 2>&1 ; then
+        adduser --system --home /var/lib/redis --no-create-home \
+        -g "${REDIS_GROUP}" --shell /bin/false \
+        "${REDIS_USER}"
+    fi
+
+    # Set user permissions on /var/log/redis/redis-server.log
+    [ -z "${LOG_DIR}" ] && LOG_DIR="/var/log/redis"
+    mkdir -p "${LOG_DIR}"
+    chown -R "${REDIS_USER}:${REDIS_GROUP}" "${LOG_DIR}"
+    chmod 755 "${LOG_DIR}"
+
+    # Set user permissions on db dir (/var/lib/redis)
+    [ -z "${DB_DIR}" ] && DB_DIR="/var/lib/redis"
+    mkdir -p "${DB_DIR}"
+    chown -R "${REDIS_USER}:${REDIS_GROUP}" "${DB_DIR}"
+    chmod 755 "${DB_DIR}"
+
+    # configuration files should not be modifiable by redis user, as this can be a security issue
+    [ -z "${CONF_DIR}" ] && CONF_DIR="/etc/redis"
+    chown -Rh 'root:root' "${CONF_DIR}"
+    chmod 755 "${CONF_DIR}"/*
+    ;;
+
+    2|3)
+    #abort-upgrade|abort-remove|abort-deconfigure)
+    ;;
+
+    *)
+        echo "${0} called with unknown argument \`${1}'" >&2
+        exit 1
+    ;;
+esac
+
+exit 0

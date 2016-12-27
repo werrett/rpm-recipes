@@ -1,0 +1,39 @@
+# Example RPM build recipe.
+# See <https://github.com/bernd/fpm-recipes> for more examples.
+class Example < FPM::Cookery::Recipe
+  description 'A short description'
+
+  name     'example'
+  version  '1.0.1'
+  revision '0.werrett'
+  homepage 'https://github.com/werrett'
+
+  # Pull from git:
+  source   'https://github.com/werrett/example',
+    :with => :git, :tag => "v#{version}"
+
+  # Or from a tarball
+  source   "https://werrett.co/example-#{version}.tar.gz"
+  sha1     '0000000000000000000000000000000000000000'
+
+  section 'database'
+
+  provides  name
+  conflicts name
+  replaces  name
+
+  # Define the build and install dependancies for RedHat-a-likes (RPM names)
+  platforms [:redhat, :fedora, :centos] do
+    build_depends 'git', 'gcc', 'zlib', 'autoconf'
+    depends 'git'
+  end
+
+  def build
+    configure
+    make
+  end
+
+  def install
+    make :install, 'DESTDIR' => destdir
+  end
+end
