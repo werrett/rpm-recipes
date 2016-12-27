@@ -21,8 +21,8 @@ vagrant ssh
 However, the list of prerequisites for building RPMs with FPM Cookery are:
 
   * Ruby 2.0 or greater
-  * git zlib zlib-devel openssl-devel readline-devel RPMs
-  * fpm-cookery Ruby Gem
+  * `git` `zlib` `zlib-devel` `openssl-devel` `readline-devel` RPMs
+  * `fpm-cookery` Ruby Gem
 
 ## Building RPMs
 
