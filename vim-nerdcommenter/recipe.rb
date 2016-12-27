@@ -15,6 +15,8 @@ class VimNerdCommenter < FPM::Cookery::Recipe
   conflicts name
   replaces  name
 
+  arch 'noarch'
+
   # Define the build and install dependancies for RedHat-a-likes (RPM names)
   platforms [:redhat, :fedora, :centos] do
     depends       'vim-enhanced'

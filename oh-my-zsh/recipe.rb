@@ -16,6 +16,8 @@ class OhMyZsh < FPM::Cookery::Recipe
   conflicts name
   replaces  name
 
+  arch 'noarch'
+
   # Dependency RPM names for RHEL like OSs
   platforms [:fedora, :redhat, :centos] do
     build_depends 'git'
@@ -32,7 +34,7 @@ class OhMyZsh < FPM::Cookery::Recipe
     system "ln -s #{sourcedir} #{installdir}"
 
     share.install installdir
-    # Include my custom 'sling' theme 
+    # Include my custom 'sling' theme
     share('oh-my-zsh/custom/').install workdir('sling.zsh-theme')
   end
 end
