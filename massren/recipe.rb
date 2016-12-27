@@ -22,15 +22,12 @@ class Massren < FPM::Cookery::Recipe
 
   def build
     ENV['GOPATH'] = builddir
-    builddir.mkdir
-    builddir('src/github.com/laurent22').mkdir
-    sourcedir = builddir("#{name}-HEAD")
-    system "ln -s #{sourcedir} #{builddir}/src/github.com/laurent22/massren"
+    ENV['GOBIN'] = builddir('bin')
     system "go get"
-    system "go install github.com/laurent22"
+    system "go build"
   end
 
   def install
-    bin.install builddir('massren-HEAD'), 'massren'
+    bin.install builddir("bin/#{name}-HEAD"), name
   end
 end
