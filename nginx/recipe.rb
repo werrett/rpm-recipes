@@ -18,7 +18,7 @@ class Nginx < FPM::Cookery::Recipe
 
   # Define the build and install dependancies for RedHat-a-likes (RPM names)
   platforms [:redhat, :fedora, :centos] do
-    build_depends 'openssl-devel', 'pcre-devel'
+    build_depends 'wget', 'openssl-devel', 'pcre-devel'
   end
 
   post_install   'post-install'
@@ -27,15 +27,15 @@ class Nginx < FPM::Cookery::Recipe
   def build
     # HttpHeadersMore Module patches - Needed to "remove" headers while proxying
     # http://wiki.nginx.org/HttpHeadersMoreModule
-    system 'wget https://github.com/openresty/headers-more-nginx-module/archive/v0.25.tar.gz'
-    system 'tar zxfv v0.25.tar.gz -C ..'
+    system 'wget https://github.com/openresty/headers-more-nginx-module/archive/v0.32.tar.gz'
+    system 'tar zxfv v0.32.tar.gz -C ..'
 
     configure \
       '--with-http_ssl_module',
       '--with-http_gzip_static_module',
       '--with-pcre',
       '--with-http_realip_module',
-      "--add-module=#{builddir}/headers-more-nginx-module-0.25/",
+      "--add-module=#{builddir}/headers-more-nginx-module-0.32/",
 
       :prefix => prefix,
 
