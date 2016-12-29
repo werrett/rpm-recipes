@@ -17,6 +17,8 @@ class VimEditorConfig < FPM::Cookery::Recipe
   
   arch 'noarch'
 
+  arch 'noarch'
+
   # Define the build and install dependancies for RedHat-a-likes (RPM names)
   platforms [:redhat, :fedora, :centos] do
     depends       'vim-enhanced'

@@ -34,7 +34,6 @@ class OhMyZsh < FPM::Cookery::Recipe
     system "ln -s #{sourcedir} #{installdir}"
 
     share.install installdir
-
     # Include my custom 'sling' theme
     share('oh-my-zsh/custom/').install workdir('sling.zsh-theme')
   end
