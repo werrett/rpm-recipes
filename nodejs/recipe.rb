@@ -14,11 +14,14 @@ class NodeJS < FPM::Cookery::Recipe
 
   # Dependency RPM names for RHEL like OSs
   platforms [:fedora, :redhat, :centos] do
-    build_depends 'openssl-devel', 'gcc-c++', 'python'
+    build_depends 'openssl-devel', 'clang', 'python'
     depends       'openssl'
   end
 
   def build
+    # Compile with clang to avoid <https://github.com/nodejs/node/issues/1173>
+    env['XX']='clang++'
+    env['CC']='clang'
     configure :prefix => prefix, :debug => true
     make
   end
