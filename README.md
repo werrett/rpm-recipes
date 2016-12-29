@@ -64,3 +64,10 @@ vim README.md
 ```
 
 The example `recipe.rb` gives you the basic outline.
+
+## Todo
+
+  * Include Puppet install with Vagrant VM
+  * Include `vboxsf` install with Vagrant VM
+  * Test build dependencies from basic Centos image
+  * Expand `VIM` plugins
