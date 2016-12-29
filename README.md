@@ -71,3 +71,4 @@ The example `recipe.rb` gives you the basic outline.
   * Include `vboxsf` install with Vagrant VM
   * Test build dependencies from basic Centos image
   * Expand `VIM` plugins
+  * Debian-ize recipes and build apt packages
