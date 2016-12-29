@@ -2,12 +2,12 @@ class VimEunuch < FPM::Cookery::Recipe
   description 'VIM plugin helpers for the UNIX commands (eg. SudoWrite)'
 
   name     'vim-eunuch'
-  version  '20150217'
+  version  '20161227'
   revision 'sbx'
-  homepage 'https://github.com/tpope/vim-eunuch.git'
+  homepage 'https://github.com/tpope/vim-eunuch'
 
-  source   'https://github.com/tpope/vim-eunuch.git',
-    :with => :git, :ref => 'e36b9a701dd3d8054e6b8a77b14710276a1d93c8'
+  source   'https://github.com/tpope/vim-eunuch',
+    :with => :git, :ref => '7eeb681ff3caedc1c01e50966bc293951f7b3e21'
 
   section 'editor'
 

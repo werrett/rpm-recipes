@@ -5,7 +5,7 @@ class Example < FPM::Cookery::Recipe
 
   name     'example'
   version  '1.0.1'
-  revision '0.werrett'
+  revision 'sbx'
   homepage 'https://github.com/werrett'
 
   # Pull from git:

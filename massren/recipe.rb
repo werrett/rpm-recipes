@@ -1,13 +1,13 @@
 class Massren < FPM::Cookery::Recipe
-  description 'Easily rename multiple files using your text edit'
+  description 'Easily rename multiple files using your text editor'
 
   name     'massren'
-  version  '20150325'
+  version  '20161227'
   revision 'sbx'
   homepage 'https://github.com/laurent22/massren'
 
   source 'https://github.com/laurent22/massren',
-    :with => :git, :ref => 'd77c4da85c'
+    :with => :git, :ref => '4de39fa7117e4a8a40805ec17d8d584aa5253452'
 
   section 'utilities'
 
@@ -22,15 +22,12 @@ class Massren < FPM::Cookery::Recipe
 
   def build
     ENV['GOPATH'] = builddir
-    builddir.mkdir
-    builddir('src/github.com/laurent22').mkdir
-    sourcedir = builddir("#{name}-HEAD")
-    system "ln -s #{sourcedir} #{builddir}/src/github.com/laurent22/massren"
+    ENV['GOBIN'] = builddir('bin')
     system "go get"
-    system "go install github.com/laurent22"
+    system "go build"
   end
 
   def install
-    bin.install builddir('massren-HEAD'), 'massren'
+    bin.install builddir("bin/#{name}-HEAD"), name
   end
 end

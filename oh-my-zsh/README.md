@@ -1,5 +1,7 @@
-# Oh My Zsh RPM
+# RPM for Oh My Zsh
 
-Super useful Zsh customisation.
+RPM to install super useful [Zsh customization](http://ohmyz.sh/), system-wide.
+Built from the latest commit to [the official Github
+repo](https://github.com/robbyrussell/oh-my-zsh).
 
-Includes a minimal 'sling' theme by @werrett.
+Also includes a minimal 'sling' theme by @werrett.

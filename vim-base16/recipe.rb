@@ -1,13 +1,13 @@
 class VimBase16 < FPM::Cookery::Recipe
-  description 'VIM plugin that provides color schemes for hackers'
+  description 'VIM plugin that provides Syntax highlighting for hackers'
 
   name     'vim-base16'
-  version  '20150217'
+  version  '20161227'
   revision 'sbx'
-  homepage 'https://github.com/chriskempson/base16'
+  homepage 'http://chriskempson.com/projects/base16'
 
-  source   'https://github.com/chriskempson/base16-vim.git',
-    :with => :git, :ref => '851a73721737409bef2d076c7547fefa1fa93684'
+  source   'https://github.com/chriskempson/base16-vim',
+    :with => :git, :ref => '9bc705129abec076c3336ec806b6defad0c246f0'
 
   section 'editor'
 

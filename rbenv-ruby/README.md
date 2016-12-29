@@ -1,7 +1,7 @@
-#  Package Name RPM
+# RPM for custom Ruby
 
-Reason why we need to build our own RPM.
+Rbenv-built version of Ruby to install OS-wide. Avoids the need to build Ruby
+from scratch on every system using Rbenv.
 
-Details about any sources of information for the build recipe.
-Eg. https://github.com/bernd/fpm-recipe
-
+Built using the Rbenv [ruby-build
+plugin](https://github.com/sstephenson/ruby-build).

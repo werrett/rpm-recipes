@@ -2,18 +2,20 @@ class VimEditorConfig < FPM::Cookery::Recipe
   description 'VIM plugin that maintains consistent coding styles'
 
   name     'vim-editorconfig'
-  version  '20150217'
+  version  '20161227'
   revision 'sbx'
   homepage 'http://editorconfig.org/'
 
-  source   'https://github.com/editorconfig/editorconfig-vim.git',
-    :with => :git, :ref => '77875eff51d87eb9c9986ff75f2361f4ac629cd3'
+  source   'https://github.com/editorconfig/editorconfig-vim',
+    :with => :git, :ref => 'a459b8cfef00100da40fd69c8ae92c4d1e63e1d2'
 
   section 'editor'
 
   provides  name
   conflicts name
   replaces  name
+  
+  arch 'noarch'
 
   arch 'noarch'
 

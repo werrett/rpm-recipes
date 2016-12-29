@@ -4,12 +4,12 @@ class RbenvRuby < FPM::Cookery::Recipe
   description 'The Ruby virtual machine installed via Rbenv'
 
   name     'rbenv-ruby'
-  version  '1.9.3-p551'
+  version  '2.3.0'
   revision 'sbx'
   homepage 'http://www.ruby-lang.org/'
 
   # Use Rbenv to pull down the correct Ruby source
-  source "", :with => :noop
+  source '', :with => :noop
 
   section 'interpreters'
 
